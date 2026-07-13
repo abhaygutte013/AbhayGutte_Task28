@@ -1,59 +1,51 @@
 import "./App.css";
-import useFetch from "/src/useFetch.js";
+import useFetch from "/hookie/useFetch.js";
 
-function App() {
-  const { data, loading, error } = useFetch(
-    "https://jsonplaceholder.typicode.com/photos?_limit=100"
-  );
-
-  const colors = Array.from({ length: 100 }, (_, i) =>
-    `hsl(${i * 3.6}, 75%, 60%)`
-  );
-
-  if (loading) {
-    return (
-      <div className="loading">
-        <h2>Loading...</h2>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="error">
-        <h2>{error}</h2>
-      </div>
-    );
-  }
-
+function App(){
+  const {
+    data,
+    loading,
+    error,
+  } = useFetch("https://jsonplaceholder.typicode.com/users");
   return (
     <div className="container">
-      <h1>Photo Gallery</h1>
+      <h1>Custom useFetch Hook Demo</h1>
+      {loading && (
+        <h2>Loading data...</h2>
+      )}
+      {error&&(
+        <h2>{error}</h2>
+      )}
+      {!loading&&!error&&(
+        <div className="card-container">
+          {data.map((user)=>(
+            <div className="card"key={user.id}>
+              <div className="top-box"></div>
+              <h3>{user.name}</h3>
+              <p>
+                <strong>Username:</strong>{user.username}
+              </p>
+              <p>
+                <strong>Email:</strong>{user.email}
+              </p>
+              <p>
+                <strong>Phone:</strong>{user.phone}
+              </p>
+              <p>
+                <strong>Website:</strong>{user.website}
+              </p>
+              <p>
+                <strong>City:</strong>{user.address.city}
+              </p>
+              <p>
+                <strong>Company:</strong>{user.company.name}
+              </p>
 
-      <div className="gallery">
-        {data.map((item, index) => {
-          const color = colors[index % colors.length];
-
-          return (
-            <div className="card" key={item.id}>
-              <div
-                className="color-box"
-                style={{ backgroundColor: color }}
-              >
-                <span className="dimension">
-                  250 × 180
-                </span>
-              </div>
-
-              <h3
-                style={{ backgroundColor: color }}
-              >
-                {item.title}
-              </h3>
             </div>
-          );
-        })}
-      </div>
+          ))}
+
+        </div>
+      )}
     </div>
   );
 }
