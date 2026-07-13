@@ -1,79 +1,63 @@
-# AbhayGutte_Task28
-# React Custom Hook - useFetch
-
+# Custom useFetch Hook
 ## Project Description
 
-This project demonstrates how to create and use a custom React hook called **useFetch**. The hook fetches data from an API and displays it in a responsive card layout.
-
-The application fetches photo data from the JSONPlaceholder API and displays each item with a colored card.
+This project demonstrates how to create and use a custom React hook named **useFetch**. The hook is responsible for fetching data from an API and managing the loading and error states. The fetched data is then displayed in cards.By using advanced hooks properties in react we create this application .
 
 ## Features
 
-- Custom hook named **useFetch**
-- Accepts a URL as a parameter
-- Fetches data using JavaScript `fetch()`
-- Displays loading message while fetching
-- Displays error message if fetching fails
-- Displays fetched data in responsive cards
-- Uses React functional components and hooks
+- Custom hook (useFetch)
+- Fetch data from an API
+- Loading indicator
+- Error handling
+- Display fetched data
+- Responsive card layout
 
 ## Technologies Used
 
-- React
+- React JS
 - Vite
 - JavaScript
 - CSS
 
+## Folder Structure
+-src{app.jsx,app.css,usefetch.js,main.jsx,index.css}
+
 ## API Used
 
-https://jsonplaceholder.typicode.com/photos?_limit=100
+The project uses the free JSONPlaceholder API.
 
-## Folder Structure
+https://jsonplaceholder.typicode.com/users
 
-src/
-│
-├── hooks/
-│   └── useFetch.js
-│
-├── App.jsx
-├── App.css
-├── main.jsx
-└── index.css
+## How to Run the Project
 
+1.Install the dependencies:npm install
+2.Start the development server:npm run dev
+3.Open your browser and visit:http://localhost:5173
 
-## Installation
+## How It Works
 
-1. Clone the repository.
+- The `useFetch` hook accepts a URL as a parameter.
+- It fetches data using the `fetch()` method.
+- While the data is loading, a loading message is displayed.
+- If an error occurs, an error message is shown.
+- When the request is successful, the fetched user data is displayed in cards.
 
-git clone <repository-link>
+## React Concepts Used
 
-2. Open the project folder.
+- Functionall Components
+- Custom Hooks
+- useState Hook
+- useEffect Hook
+- Fetch API
+- Conditional Rendering
+- Array map()
 
+## What I Learned
 
-cd project-folder
-
-3. Install dependencies.
-
-npm install
-
-4. Start the development server.
-
-npm run dev
-
-5. Open your browser and visit:
-
-http://localhost:5173
-
-
-## Build Project
-
-
-npm run build
-
-## Learning Outcome
-
-- Creating custom React hooks
-- Fetching data from an API
-- Managing state using React Hooks
-- Rendering dynamic data
-- Working with reusable logic in React
+While buildding this project, I learned how to:
+- Create a custom React hook.
+- Reuse fetching logic in different components.
+- Handle loading and error states.
+- Fetch data from an API using fetch().
+- Display API data using the map() function.
+- Organize React files into separate components and hooks.
